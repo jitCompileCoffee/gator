@@ -1,0 +1,16 @@
+services:
+  db:
+    container_name: gator_db
+    image: postgres:18
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: gator
+    ports:
+      - "5432:5432"
+    volumes:
+      - gator_data:/var/lib/postgresql
+    restart: unless-stopped
+
+volumes:
+  gator_data:
